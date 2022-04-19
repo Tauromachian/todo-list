@@ -1,4 +1,4 @@
-module.exports = { route, log };
+module.exports = { route };
 
 function route(app) {
   app.get("/", (req, res) => {

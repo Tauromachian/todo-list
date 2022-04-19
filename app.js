@@ -8,7 +8,6 @@ app.set("view engine", "ejs");
 
 const { route, log } = require("./routes");
 route(app);
-log();
 
 app.use((req, res) => {
   res.write("Hello there");
