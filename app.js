@@ -6,6 +6,8 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
+const { sequelize, Item } = require("./db-connection");
+
 const { route, log } = require("./routes");
 route(app);
 
