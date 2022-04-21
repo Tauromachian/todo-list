@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 const { sequelize, Item } = require("./db-connection");
 
 const { route, log } = require("./routes");
-route(app);
+route(app, Item);
 
 app.use((req, res) => {
   res.write("Hello there");
