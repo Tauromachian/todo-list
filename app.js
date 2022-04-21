@@ -19,5 +19,9 @@ app.use((req, res) => {
 const port = 3000;
 
 app.listen(port, () => {
+  sequelize
+    .authenticate()
+    .then(() => console.log("Connection started successfully"))
+    .catch(() => console.log("There was an error during connection"));
   console.log(`Running on ${port}`);
 });
