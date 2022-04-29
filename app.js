@@ -5,8 +5,8 @@ const http = require("http");
 const { Server } = require("socket.io");
 
 const app = express();
-http.createServer(app);
-const io = new Server(http);
+const server = http.createServer(app);
+const io = new Server(server);
 
 io.on("connection", () => {
   console.log("A user connected");
@@ -29,7 +29,7 @@ app.use((req, res) => {
 
 const port = 3000;
 
-app.listen(port, () => {
+server.listen(port, () => {
   sequelize
     .authenticate()
     .then(() => console.log("Connection started successfully"))
