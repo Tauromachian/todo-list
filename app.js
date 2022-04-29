@@ -1,7 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const http = require("http");
+const { Server } = require("socket.io");
+
 const app = express();
+http.createServer(app);
+const io = new Server(http);
+
+io.on("connection", () => {
+  console.log("A user connected");
+});
 
 app.use(morgan("dev"));
 app.use(express.static(__dirname + "/public"));
